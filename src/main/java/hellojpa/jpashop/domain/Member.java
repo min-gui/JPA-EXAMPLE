@@ -10,16 +10,16 @@ import java.util.List;
 
 @Entity
 @Getter @Setter
-public class Member extends BaseEntity{
+public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue
     @Column(name = "member_id")
     private Long id;
     private String name;
-    private String city;
-    private String street;
-    private String zipcode;
+
+    @Embedded
+    private Address address;
 
     //example .. 관계를 끊어 주는게 좋아.
     @OneToMany(mappedBy = "member")
